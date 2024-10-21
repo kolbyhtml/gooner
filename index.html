@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>goon</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="https://river.bz" class="data-button">Data</a>
+        <button class="credits-button" onclick="showCredits()">Credits</button>
+        <div class="content">
+            <div class="logo">goon.</div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search term">
+                <button class="search-button">Search</button>
+            </div>
+            <div class="disclaimer">site is still in development nothing works this is a preview (inspired by ironveil)</div>
+        </div>
+    </div>
+
+    <div class="credits-page" id="creditsPage">
+        <div class="credits-content">
+            <span class="close-credits" onclick="hideCredits()">&times;</span>
+            <h2 class="credits-title">Credits</h2>
+            
+            <div class="credit-section">
+                <h3>Concept</h3>
+                <div class="credit-item">
+                    <h4>Original Inspiration</h4>
+                    <p>ironveil.org</p>
+                </div>
+            </div>
+            
+            <div class="credit-section">
+                <h3>Development</h3>
+                <div class="credit-item">
+                    <h4>Lead Developers</h4>
+                    <p>Vykd, Chippy</p>
+                </div>
+                <div class="credit-item">
+                    <h4>Frontend Development</h4>
+                    <p>Percaholic</p>
+                </div>
+                <div class="credit-item">
+                    <h4>Backend Development</h4>
+                    <p>N/A</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
