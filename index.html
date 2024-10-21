@@ -4,8 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>goon</title>
-    <!-- Link to external CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            background-color: #000000;
+            color: #ff3333;
+            overflow: hidden;
+            user-select: none;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            user-select: none;
+        }
+        .data-button, .credits-button {
+            position: absolute;
+            top: 20px;
+            background-color: transparent;
+            color: #ff3333;
+            border: 1px solid #ff3333;
+            padding: 5px 15px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        .data-button {
+            right: 20px;
+            user-select: none;
+        }
+        .credits-button {
+            right: 100px;
+            user-select: none;
+        }
+        
+        .data-button:hover, .credits-button:hover {
+            background-color: #ff3333;
+            color: #000000;
+            user-select: none;
+        }
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            user-select: none;
+        }
+        .logo {
+            font-size: 72px;
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+            user-select: none;
+        }
+        .search-bar {
+            display: flex;
+            margin-bottom: 10px;
+            user-select: none;
+        }
+        #search-input {
+            flex-grow: 1;
+            background-color: #333333;
+            border: none;
+            color: #fffdfd;
+            padding: 10px;
+            font-size: 16px;
+            user-select: none;
+        }
+        .search-button {
+            background-color: transparent;
+            color: #ff3333;
+            border: 1px solid #ff3333;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        .search-button:hover {
+            background-color: #ff3333;
+            color: #000000;
+            user-select: none;
+        }
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+            user-select: none;
+        }
+        .credits-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            user-select: none;
+        }
+        .credits-content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #0a0a0a;
+            border: 2px solid #ff3333;
+            color: #ff3333;
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.3);
+            user-select: none;
+        }
+        .close-credits {
+            float: right;
+            cursor: pointer;
+            font-size: 24px;
+            transition: color 0.3s ease;
+            user-select: none;
+        }
+        .close-credits:hover {
+            color: #ff6666;
+            user-select: none;
+        }
+        .credits-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            user-select: none;
+        }
+        .credit-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ff3333;
+            user-select: none;
+        }
+        .credit-section:last-child {
+            border-bottom: none;
+            user-select: none;
+        }
+        .credit-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ff6666;
+            user-select: none;
+        }
+        .credit-item {
+            margin-bottom: 10px;
+            user-select: none;
+        }
+        .credit-item h4 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            user-select: none;
+        }
+        .credit-item p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.4;
+            opacity: 0.7;
+            user-select: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -38,7 +205,7 @@
                 <h3>Development</h3>
                 <div class="credit-item">
                     <h4>Lead Developers</h4>
-                    <p>Vykd, Chippy</p>
+                    <p>Vykd,Chippy</p>
                 </div>
                 <div class="credit-item">
                     <h4>Frontend Development</h4>
@@ -52,7 +219,14 @@
         </div>
     </div>
 
-    <!-- Link to external JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        function showCredits() {
+            document.getElementById('creditsPage').style.display = 'block';
+        }
+
+        function hideCredits() {
+            document.getElementById('creditsPage').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
