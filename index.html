@@ -19,7 +19,9 @@
             position: relative;
             width: 100%;
             height: 100%;
-            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .data-button, .credits-button {
             position: absolute;
@@ -31,21 +33,16 @@
             text-decoration: none;
             font-size: 14px;
             transition: all 0.3s ease;
-            user-select: none;
         }
         .data-button {
             right: 20px;
-            user-select: none;
         }
         .credits-button {
             right: 100px;
-            user-select: none;
         }
-        
         .data-button:hover, .credits-button:hover {
             background-color: #ff3333;
             color: #000000;
-            user-select: none;
         }
         .content {
             position: absolute;
@@ -54,50 +51,71 @@
             transform: translate(-50%, -50%);
             text-align: center;
             width: 90%;
-            max-width: 600px;
-            user-select: none;
+            max-width: 800px;
         }
         .logo {
             font-size: 72px;
             margin-bottom: 40px;
             letter-spacing: 5px;
-            user-select: none;
+        }
+        .search-container {
+            width: 100%;
+            text-align: center;
         }
         .search-bar {
             display: flex;
-            margin-bottom: 10px;
-            user-select: none;
+            margin-bottom: 20px;
+            width: 100%;
         }
         #search-input {
             flex-grow: 1;
             background-color: #333333;
             border: none;
-            color: #fffdfd;
-            padding: 10px;
+            color: #ffffff;
+            padding: 12px;
             font-size: 16px;
-            user-select: none;
         }
         .search-button {
             background-color: transparent;
             color: #ff3333;
             border: 1px solid #ff3333;
-            padding: 10px 20px;
+            padding: 12px 24px;
             margin-left: 10px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
-            user-select: none;
         }
         .search-button:hover {
             background-color: #ff3333;
             color: #000000;
-            user-select: none;
+        }
+        .search-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .search-type-button {
+            background-color: transparent;
+            color: #ff3333;
+            border: 1px solid #ff3333;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .search-type-button:hover {
+            background-color: #ff3333;
+            color: #000000;
+        }
+        .search-type-button.active {
+            background-color: #ff3333;
+            color: #000000;
         }
         .disclaimer {
             margin-top: 20px;
             font-size: 14px;
             opacity: 0.7;
-            user-select: none;
         }
         .credits-page {
             display: none;
@@ -109,7 +127,6 @@
             background-color: rgba(0, 0, 0, 0.95);
             z-index: 1000;
             overflow-y: auto;
-            user-select: none;
         }
         .credits-content {
             max-width: 800px;
@@ -119,18 +136,15 @@
             border: 2px solid #ff3333;
             color: #ff3333;
             box-shadow: 0 0 20px rgba(255, 51, 51, 0.3);
-            user-select: none;
         }
         .close-credits {
             float: right;
             cursor: pointer;
             font-size: 24px;
             transition: color 0.3s ease;
-            user-select: none;
         }
         .close-credits:hover {
             color: #ff6666;
-            user-select: none;
         }
         .credits-title {
             font-size: 36px;
@@ -138,39 +152,32 @@
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 3px;
-            user-select: none;
         }
         .credit-section {
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 1px solid #ff3333;
-            user-select: none;
         }
         .credit-section:last-child {
             border-bottom: none;
-            user-select: none;
         }
         .credit-section h3 {
             font-size: 24px;
             margin-bottom: 15px;
             color: #ff6666;
-            user-select: none;
         }
         .credit-item {
             margin-bottom: 10px;
-            user-select: none;
         }
         .credit-item h4 {
             margin: 0 0 5px 0;
             font-size: 18px;
-            user-select: none;
         }
         .credit-item p {
             margin: 0;
             font-size: 14px;
             line-height: 1.4;
             opacity: 0.7;
-            user-select: none;
         }
     </style>
 </head>
@@ -180,9 +187,20 @@
         <button class="credits-button" onclick="showCredits()">Credits</button>
         <div class="content">
             <div class="logo">goon.</div>
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search term">
-                <button class="search-button">Search</button>
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search term">
+                    <button class="search-button">Search</button>
+                </div>
+                <div class="search-types">
+                    <button class="search-type-button" data-type="email">Email</button>
+                    <button class="search-type-button" data-type="username">Username</button>
+                    <button class="search-type-button" data-type="ip">IP Address</button>
+                    <button class="search-type-button" data-type="password">Password</button>
+                    <button class="search-type-button" data-type="fullname">Full Name</button>
+                    <button class="search-type-button" data-type="hash">Hash</button>
+                    <button class="search-type-button" data-type="domain">Domain</button>
+                </div>
             </div>
             <div class="disclaimer">site is still in development nothing works this is a preview (inspired by ironveil)</div>
         </div>
@@ -209,7 +227,7 @@
                 </div>
                 <div class="credit-item">
                     <h4>Frontend Development</h4>
-                    <p>Percaholic,Sonny aka mr rape ass</p>
+                    <p>Percaholic,Sonny</p>
                 </div>
                 <div class="credit-item">
                     <h4>Backend Development</h4>
@@ -220,6 +238,24 @@
     </div>
 
     <script>
+        const searchButtons = document.querySelectorAll('.search-type-button');
+        const searchInput = document.getElementById('search-input');
+        let activeSearchType = null;
+
+        searchButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                searchButtons.forEach(btn => btn.classList.remove('active'));
+                if (activeSearchType === button.dataset.type) {
+                    activeSearchType = null;
+                    searchInput.placeholder = 'Search term';
+                } else {
+                    button.classList.add('active');
+                    activeSearchType = button.dataset.type;
+                    searchInput.placeholder = `Search by ${button.textContent}...`;
+                }
+            });
+        });
+
         function showCredits() {
             document.getElementById('creditsPage').style.display = 'block';
         }
